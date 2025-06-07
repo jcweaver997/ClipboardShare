@@ -1,6 +1,9 @@
 # ClipboardShare
-Share your clipboard will all computers on LAN
+Share your clipboard with all computers on the LAN
 
-All computers on LAN that have this program running will share a clipboard. 
+All computers on the LAN running this program will share a clipboard.
 
-This is done through plaintext multicast packets. Only text works at the moment.
+The implementation is now written in Rust (edition 2024) and sends clipboard
+data over multicast using `bincode` serialization. Text and images are
+supported. Large clipboard data is split into multiple UDP datagrams so it can
+exceed the usual packet size limit.
